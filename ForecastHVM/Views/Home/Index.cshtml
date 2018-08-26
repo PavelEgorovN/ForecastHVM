@@ -1,0 +1,108 @@
+﻿@model IndexViewModel
+@using ForecastHVM.Models
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Forecast HVM</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div>
+        <table class="table-bordered" align="center">
+            <tr>
+                <td class=" alert-success" align="center">CAGR'5</td>
+                <td align="center">@Model.GARP5</td>
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Forecast accuracy</td>
+                <td align="center">@Model.ForecastAccuracy</td>
+            </tr>
+            <tr>
+                <td class="alert-success" align="center">Месяц</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center"> @element.Month</td>
+
+                }
+            </tr>
+            <tr>
+                <td class="alert-success" align="center">Год</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.Year</td>
+
+                }
+                <td class=" alert-success" align="center">2017F</td>
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Выручка</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.Sum</td>
+
+                }
+                <td align="center">@Model.FocasRevenueForTheLastYear</td>
+
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Коэф.сглаж.ряда</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.CoefficientOfSmoothingTheSeries</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Коэф.сглаж.тренда</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.CoefficientOfSmoothingTheTrend</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Коэф.сглаж.сезонности</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.SeasoningSmoothingFactor</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Проноз для оценки модели</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.ModelEstimationForecast</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Ошибка модели</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.ModelError</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Отклонение ошибки от прогноза</td>
+                @foreach (var element in Model.ExpectedModelData)
+                {
+                    <td align="center">@element.ErrorDeviationFromForecast</td>
+
+                }
+            </tr>
+            <tr>
+                <td class=" alert-success" align="center">Точность прогноза</td>
+                <td align="center">@Model.ForecastAccuracy</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
